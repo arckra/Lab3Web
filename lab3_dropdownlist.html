@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membuat Form dengan Dropdown & Listbox</title>
+    <title>HTML Latihan - Dropdown & Listbox</title>
     <style>
         body {
             font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #053a96);
             color: #333;
             display: flex;
             flex-direction: column;
@@ -58,8 +58,8 @@
             font-family: inherit;
         }
         input[type="text"]:focus, textarea:focus, select:focus {
-            border-color: #047857;
-            box-shadow: 0 0 5px #047857;
+            border-color: #053a96;
+            box-shadow: 0 0 5px #053a96;
             outline: none;
         }
         select[multiple] {
@@ -68,7 +68,7 @@
         }
         input[type="submit"] {
             margin-top: 15px;
-            background-color: #047857;
+            background-color: #053a96;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -78,35 +78,13 @@
             width: 100%;
         }
         input[type="submit"]:hover {
-            background-color: #065f46;
+            background-color: #07cae8;
             transform: scale(1.03);
         }
     </style>
-    <script>
-        // Kirim form ke frm.php dan tampilkan notifikasi sukses
-        function kirimData(event) {
-            event.preventDefault(); // Biar nggak reload halaman
-
-            const form = event.target;
-
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form)
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert("✅ Data berhasil dikirim!");
-                form.reset();
-            })
-            .catch(error => {
-                alert("❌ Gagal mengirim data: " + error);
-            });
-        }
-    </script>
 </head>
 
 <body>
-    <h2>Membuat Form</h2>
     <div class="info">
         <b>Nama:</b> Ari Cakra Kurniawan <br>
         <b>NIM:</b> 312410248 <br>
@@ -114,6 +92,7 @@
         <b>Mata Kuliah:</b> Pemrograman Web 1
     </div>
 
+    <h2>Membuat Form</h2>
     <form action="frm.php" method="post" onsubmit="kirimData(event)">
         <fieldset>
             <header>Data Pelanggan</header>
@@ -128,13 +107,13 @@
             <label><input type="radio" name="gender" value="Laki-laki" required> Laki-laki</label>
             <label><input type="radio" name="gender" value="Perempuan" required> Perempuan</label>
 
-            <label for="kota">Kota Asal:</label>
+            <label for="kota">Jurusan :</label>
             <select id="kota" name="kota" required>
-                <option value="">-- Pilih Kota --</option>
-                <option value="Bekasi">Bekasi</option>
-                <option value="Jakarta">Jakarta</option>
-                <option value="Bandung">Bandung</option>
-                <option value="Surabaya">Surabaya</option>
+                <option value="">-- Pilih Jurusan --</option>
+                <option value="Bekasi">Teknik Informatika</option>
+                <option value="Jakarta">Teknik Industri</option>
+                <option value="Bandung">Teknik Arsitektur</option>
+                <option value="Surabaya">Teknik Sipil</option>
             </select>
 
             <label for="hobi">Hobi:</label>
